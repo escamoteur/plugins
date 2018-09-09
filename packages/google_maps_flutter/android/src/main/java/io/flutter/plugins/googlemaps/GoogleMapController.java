@@ -92,8 +92,12 @@ final class GoogleMapController
         mapView.onStop();
         break;
       case DESTROYED:
-        mapView.onDestroy();
-        break;
+      mapView.onCreate(null);
+      mapView.onStart();
+      mapView.onResume();
+      mapView.onPause();
+      mapView.onStop();
+      break;
       case PAUSED:
         mapView.onCreate(null);
         mapView.onStart();
