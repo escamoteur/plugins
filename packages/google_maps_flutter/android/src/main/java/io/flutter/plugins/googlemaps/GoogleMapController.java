@@ -5,6 +5,7 @@
 package io.flutter.plugins.googlemaps;
 
 import static io.flutter.plugins.googlemaps.GoogleMapsPlugin.CREATED;
+import static io.flutter.plugins.googlemaps.GoogleMapsPlugin.DESTROYED;
 import static io.flutter.plugins.googlemaps.GoogleMapsPlugin.PAUSED;
 import static io.flutter.plugins.googlemaps.GoogleMapsPlugin.RESUMED;
 import static io.flutter.plugins.googlemaps.GoogleMapsPlugin.STARTED;
@@ -91,7 +92,7 @@ final class GoogleMapController
         mapView.onStop();
         break;
       case DESTROYED:
-        mapView.dispose();
+        mapView.onDestroy();
         break;
       case PAUSED:
         mapView.onCreate(null);
