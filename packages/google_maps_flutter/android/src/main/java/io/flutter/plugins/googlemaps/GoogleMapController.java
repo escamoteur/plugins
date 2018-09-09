@@ -90,7 +90,7 @@ final class GoogleMapController
         mapView.onPause();
         mapView.onStop();
         break;
-      case DESTROID:
+      case DESTROYED:
         mapView.dispose();
         break;
       case PAUSED:
