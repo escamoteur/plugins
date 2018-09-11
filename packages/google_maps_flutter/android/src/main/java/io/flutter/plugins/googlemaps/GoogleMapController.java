@@ -97,7 +97,7 @@ final class GoogleMapController
       // This is only a preliminary fix. I tried calling .onDestroy here what threw an exception.
       // Withthin you know can use the map_plugin together with any authetication that destroys the Activity
         mapView.onCreate(null);
-        mapView.onDestroy();
+        mapView.onStart();
       break;
       case PAUSED:
         mapView.onCreate(null);
