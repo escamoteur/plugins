@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -69,7 +70,7 @@ final class GoogleMapController
     this.id = id;
     this.activityState = activityState;
     this.registrar = registrar;
-    this.mapView = new MapView(context, options);
+
     this.markers = new HashMap<>();
     this.density = context.getResources().getDisplayMetrics().density;
     methodChannel =
@@ -83,6 +84,7 @@ final class GoogleMapController
   }
 
   void init() {
+    Log.d("map_view_init", "map_view_init: " + activityState.get() + "   ----------------------------------------------");
     switch (activityState.get()) {
       case STOPPED:
         mapView.onCreate(null);
