@@ -7,6 +7,8 @@ package io.flutter.plugins.googlemaps;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
+
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -27,6 +29,8 @@ public class GoogleMapsPlugin implements Application.ActivityLifecycleCallbacks 
 
   public static void registerWith(Registrar registrar) {
     final GoogleMapsPlugin plugin = new GoogleMapsPlugin();
+    Log.d("map_view_Plugin", "registerWith: ----------------------------------------------");
+
     registrar.activity().getApplication().registerActivityLifecycleCallbacks(plugin);
     registrar
         .platformViewRegistry()
@@ -36,34 +40,49 @@ public class GoogleMapsPlugin implements Application.ActivityLifecycleCallbacks 
 
   @Override
   public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    Log.d("map_view_Plugin", "onActivityCreated: ----------------------------------------------");
+
     state.set(CREATED);
   }
 
   @Override
   public void onActivityStarted(Activity activity) {
+    Log.d("map_view_Plugin", "onActivityStarted: ----------------------------------------------");
+
     state.set(STARTED);
   }
 
   @Override
   public void onActivityResumed(Activity activity) {
+    Log.d("map_view_Plugin", "onActivityResumed: ----------------------------------------------");
+
     state.set(RESUMED);
   }
 
   @Override
   public void onActivityPaused(Activity activity) {
+    Log.d("map_view_Plugin", "onActivityPaused: ----------------------------------------------");
+
     state.set(PAUSED);
   }
 
   @Override
   public void onActivityStopped(Activity activity) {
+    Log.d("map_view_Plugin", "onActivityStopped: ----------------------------------------------");
+
     state.set(STOPPED);
   }
 
   @Override
-  public void onActivitySaveInstanceState(Activity activity, Bundle outState) {}
+  public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    Log.d("map_view_Plugin", "onActivitySaveInstanceState: ----------------------------------------------");
+
+  }
 
   @Override
   public void onActivityDestroyed(Activity activity) {
+    Log.d("map_view_Plugin", "onActivityDestroyed: ----------------------------------------------");
+
     state.set(DESTROYED);
   }
 }
