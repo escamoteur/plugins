@@ -70,7 +70,7 @@ final class GoogleMapController
     this.id = id;
     this.activityState = activityState;
     this.registrar = registrar;
-
+    this.mapView = new MapView(context, options);
     this.markers = new HashMap<>();
     this.density = context.getResources().getDisplayMetrics().density;
     methodChannel =
